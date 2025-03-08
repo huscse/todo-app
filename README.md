@@ -1,55 +1,80 @@
-# React + TypeScript + Vite
+# ToDo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple, responsive Todo application built with React and styled with Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✅ Create and delete tasks
+- 📱 Fully responsive design (mobile, tablet, and desktop)
+- ⌨️ Keyboard support (press Enter to add task)
+- 🎨 Clean, modern UI with Tailwind CSS
+- 🚫 Validation to prevent empty tasks
+- 🗑️ Task deletion functionality
+- 📊 Empty state handling
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React
+- Tailwind CSS
+- TypeScript/TSX
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+
+## Project Structure
+
+```
+src/
+├── App.tsx         # Main application component
+├── App.css         # Tailwind CSS imports
+├── assets/         # Static assets
+├── main.tsx        # Entry point
+└── index.html      # HTML template
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Usage
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Type a task in the input field
+2. Click the "Add" button or press Enter to add the task
+3. Click the delete icon next to a task to remove it
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## Code Example
+
+The main component uses React's useState hook to manage the todo list:
+
+```jsx
+import { useState } from 'react';
+
+function App() {
+  const [toDo, addToDo] = useState([]);
+  const [input, setInput] = useState('');
+
+  return (
+    <div className="min-h-screen bg-gray-100 py-6 px-2 sm:py-10 sm:px-4">
+      {/* App content */}
+    </div>
+  );
+}
 ```
-# todo-app
+
+## Future Enhancements
+
+- Task completion status (checkbox)
+- Task categories or tags
+- Local storage integration for persistence
+- Drag and drop reordering
+- Due dates and reminders
+- Task editing functionality
+- Dark mode support
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
